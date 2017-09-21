@@ -66,9 +66,9 @@ class Sector_Widget extends \WP_Widget {
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'New title', 'sector_widget_domain' );
 		$description = ! empty( $instance['description'] ) ? $instance['description'] : esc_html__( 'New description', 'sector_widget_domain' );
 		$btnLabel = ! empty( $instance['btn_label'] ) ? $instance['btn_label'] : esc_html__( 'New label', 'sector_widget_domain' );
-		$btnLink = ! empty( $instance['btn_link'] ) ? $instance['btn_link'] : esc_html__( 'New Url', 'sector_widget_domain' );
-		$badgeText = ! empty( $instance['badge_text'] ) ? $instance['badge_text'] : esc_html__( 'Badge Text', 'sector_widget_domain' );
-		$badgeCost = ! empty( $instance['badge_cost'] ) ? $instance['badge_cost'] : esc_html__( 'Badge Cost', 'sector_widget_domain' );
+		$btnLink = ! empty( $instance['btn_link'] ) ? $instance['btn_link'] : esc_html__( '/contact-us', 'sector_widget_domain' );
+		$badgeText = ! empty( $instance['badge_text'] ) ? $instance['badge_text'] : esc_html__( 'Save', 'sector_widget_domain' );
+		$badgeCost = ! empty( $instance['badge_cost'] ) ? $instance['badge_cost'] : esc_html__( '100€', 'sector_widget_domain' );
 		$image = ! empty( $instance['image'] ) ? $instance['image'] : esc_html__( 'Choose Image', 'sector_widget_domain' );
 		?>
         <p>
