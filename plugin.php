@@ -13,4 +13,5 @@ add_action( 'widgets_init', function(){
 	register_widget( 'AnbWidgets\Sector_Widget' );
 	register_widget( 'AnbWidgets\HomePageBanner_Widget' );
 	register_widget( 'AnbWidgets\HomePageBudget_Widget' );
+	register_widget('AnbWidgets\HowItWorks_Widget');
 });
