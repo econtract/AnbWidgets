@@ -78,7 +78,7 @@ class HowItWorks_Widget extends \WP_Widget {
 		$videoLink = ! empty( $instance['video_link'] ) ? $instance['video_link'] : esc_html__( '#', 'how_it_works_widget_domain' );
 		?>
         <p>
-            <label for="<?php echo $this->get_field_id('image_uri'); ?>">Image</label><br />
+            <label for="<?php echo $this->get_field_id('image_uri'); ?>"><?php esc_attr_e( 'Icon Image:', 'how_it_works_widget_domain' ); ?></label>
             <input type="text" class="img widefat" name="<?php echo $this->get_field_name('image_uri'); ?>" id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php echo esc_attr($image_uri); ?>" />
             <input type="button" class="select-img button" value="Select Image" />
         </p>
