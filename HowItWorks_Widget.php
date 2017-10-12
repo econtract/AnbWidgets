@@ -71,7 +71,7 @@ class HowItWorks_Widget extends \WP_Widget {
 	 * @param array $instance Previously saved values from database.
 	 */
 	public function form( $instance ) {
-		$image_uri = ! empty( $instance['image_uri'] ) ? $instance['image_uri'] : esc_html__( 'Choose image_uri', 'how_it_works_widget_domain' );
+		$image_uri = ! empty( $instance['image_uri'] ) ? $instance['image_uri'] : esc_html__( 'Choose image', 'how_it_works_widget_domain' );
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'New title', 'how_it_works_widget_domain' );
 		$description = ! empty( $instance['description'] ) ? $instance['description'] : esc_html__( 'New description', 'how_it_works_widget_domain' );
 		$videoLbl = ! empty( $instance['video_label'] ) ? $instance['video_label'] : esc_html__( 'Video Label', 'how_it_works_widget_domain' );
