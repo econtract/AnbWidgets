@@ -80,9 +80,9 @@ class HomePageCustomerReviews_Widget extends \WP_Widget {
 		$review_text = ! empty( $instance['review_text'] ) ? $instance['review_text'] : esc_html__( 'New Review Text', 'homePageCustomerReviews_widget_domain' );
 		$review_description = ! empty( $instance['review_description'] ) ? $instance['review_description'] : esc_html__( 'New Review description', 'homePageCustomerReviews_widget_domain' );
         $review_author = ! empty( $instance['review_author'] ) ? $instance['review_author'] : esc_html__( 'New Review Text', 'homePageCustomerReviews_widget_domain' );
-		$another_review_text = ! empty( $instance['another_review_text'] ) ? $instance['another_review_text'] : esc_html__( 'Other Review Author', 'homePageCustomerReviews_widget_domain' );
+		$another_review_text = ! empty( $instance['another_review_text'] ) ? $instance['another_review_text'] : esc_html__( '', 'homePageCustomerReviews_widget_domain' );
 		$another_review_description = ! empty( $instance['another_review_description'] ) ? $instance['another_review_description'] : esc_html__( 'Other Review description', 'homePageCustomerReviews_widget_domain' );
-        $another_review_author = ! empty( $instance['another_review_author'] ) ? $instance['another_review_author'] : esc_html__( 'Other Review Author', 'homePageCustomerReviews_widget_domain' );
+        $another_review_author = ! empty( $instance['another_review_author'] ) ? $instance['another_review_author'] : esc_html__( '', 'homePageCustomerReviews_widget_domain' );
 
 		?>
 
