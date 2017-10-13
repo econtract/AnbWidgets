@@ -16,4 +16,5 @@ add_action( 'widgets_init', function(){
 	register_widget( 'AnbWidgets\HowItWorks_Widget' );
 	register_widget( 'AnbWidgets\HomePageCustomerReviews_Widget' );
 	register_widget( 'AnbWidgets\HomePageQuickEntryPoints_Widget' );
+	register_widget( 'AnbWidgets\HomePagePromiseSection_Widget' );
 });
