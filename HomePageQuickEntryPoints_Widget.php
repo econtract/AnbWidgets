@@ -47,11 +47,11 @@ class HomePageQuickEntryPoints_Widget extends \WP_Widget {
 		echo "<div class='col-md-4'>
 				<div class='entryPoint'>
 					<div class='iconWrapper'>
-						<img src='".esc_url($instance['image_uri'])."' alt='{$instance['title']}' />
+						<img src='".esc_url($instance['image_uri'])."' alt='".pll__($instance['title'])."' />
 					</div>
-					<h4>{$instance['title']}</h4>
-					<p>{$instance['description']}</p>
-					 <a href='".esc_url($instance['page_link'])."' title='{$instance['label']}' class='all-caps btn btn-primary'>{$instance['label']}</a>
+					<h4>".pll__($instance['title'])."</h4>
+					<p>".pll__($instance['description'])."</p>
+					 <a href='".esc_url(pll__($instance['page_link']))."' title='".pll__($instance['label'])."' class='all-caps btn btn-primary'>".pll__($instance['label'])."</a>
 				</div>
 			</div>";
 

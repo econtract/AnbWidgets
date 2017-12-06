@@ -33,9 +33,9 @@ class HomePageBanner_Widget extends \WP_Widget {
 			//echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
 		}
 
-		echo "<h1>{$instance['missionStatement']}</h1>
+		echo "<h1>".pll__($instance['missionStatement'])."</h1>
 				<ul class='list-inline home-banner-list'>
-                               <li><i class='icon-tick'></i> {$instance['attribute']}</li>
+                               <li><i class='icon-tick'></i> ".pll__($instance['attribute'])."</li>
                                <li><i class='icon-tick'></i> {$instance['attribute1']}</li>
                                <li><i class='icon-tick'></i> {$instance['attribute2']}</li>
                </ul>";
