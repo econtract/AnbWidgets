@@ -40,15 +40,15 @@ class Sector_Widget extends \WP_Widget {
 		echo "<li class='col-md-3'>
                 <div class='placeholder'>
                     <div class='save-badge'>
-                        <span>{$instance['badge_text']}</span>
-                        <span class='bold'>{$instance['badge_cost']}</span>
+                        <span>".pll__($instance['badge_text'])."</span>
+                        <span class='bold'>".pll__($instance['badge_cost'])."</span>
                     </div>
                     <div class='icon-wrapper'>
-                        <i class='sprite sprite-{$instance['image']}'></i>
+                        <i class='sprite sprite-".pll__($instance['image'])."'></i>
                     </div>
-                    <h3>{$instance['title']}</h3>
-                    <p>{$instance['description']}</p>
-                    <a href='{$instance['btn_link']}' class='btn btn-primary all-caps'>{$instance['btn_label']}</a>
+                    <h3>".pll__($instance['title'])."</h3>
+                    <p>".pll__($instance['description'])."</p>
+                    <a href='".pll__($instance['btn_link'])."' class='btn btn-primary all-caps'>".pll__($instance['btn_label'])."</a>
                 </div>
             </li>";
 
@@ -73,7 +73,7 @@ class Sector_Widget extends \WP_Widget {
 		?>
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'sector_widget_domain' ); ?></label>
-            <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+            <input readonly class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
         </p>
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>"><?php esc_attr_e( 'Image:', 'sector_widget_domain' ); ?></label>
@@ -86,23 +86,23 @@ class Sector_Widget extends \WP_Widget {
         </p>
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'description' ) ); ?>"><?php esc_attr_e( 'Description:', 'sector_widget_domain' ); ?></label>
-            <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'description' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'description' ) ); ?>" type="text" value="<?php echo esc_attr( $description ); ?>">
+            <input readonly class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'description' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'description' ) ); ?>" type="text" value="<?php echo esc_attr( $description ); ?>">
         </p>
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'btn_label' ) ); ?>"><?php esc_attr_e( 'Button Label:', 'sector_widget_domain' ); ?></label>
-            <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'btn_label' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'btn_label' ) ); ?>" type="text" value="<?php echo esc_attr( $btnLabel ); ?>">
+            <input readonly class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'btn_label' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'btn_label' ) ); ?>" type="text" value="<?php echo esc_attr( $btnLabel ); ?>">
         </p>
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'btn_link' ) ); ?>"><?php esc_attr_e( 'Button Link:', 'sector_widget_domain' ); ?></label>
-            <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'btn_link' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'btn_link' ) ); ?>" type="text" value="<?php echo esc_attr( $btnLink ); ?>">
+            <input readonly class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'btn_link' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'btn_link' ) ); ?>" type="text" value="<?php echo esc_attr( $btnLink ); ?>">
         </p>
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'badge_text' ) ); ?>"><?php esc_attr_e( 'Badge Text:', 'sector_widget_domain' ); ?></label>
-            <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'badge_text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'badge_text' ) ); ?>" type="text" value="<?php echo esc_attr( $badgeText ); ?>">
+            <input readonly class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'badge_text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'badge_text' ) ); ?>" type="text" value="<?php echo esc_attr( $badgeText ); ?>">
         </p>
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'badge_cost' ) ); ?>"><?php esc_attr_e( 'Badge Cost:', 'sector_widget_domain' ); ?></label>
-            <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'badge_cost' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'badge_cost' ) ); ?>" type="text" value="<?php echo esc_attr( $badgeCost ); ?>">
+            <input readonly class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'badge_cost' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'badge_cost' ) ); ?>" type="text" value="<?php echo esc_attr( $badgeCost ); ?>">
         </p>
 		<?php
 	}
