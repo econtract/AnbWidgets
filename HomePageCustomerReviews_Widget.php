@@ -45,19 +45,15 @@ class HomePageCustomerReviews_Widget extends \WP_Widget {
                     <ul class='row reviews-content'>
             
                         <li class='col-md-6'>
-                            <div class='reviewWrapper'>
-                                <h3>{$instance['review_text']}</h3>
-                                <p>{$instance['review_description']}</p>
-                                <span class='author-name'>{$instance['review_author']}</span>
-                            </div>
+                            <h3>{$instance['review_text']}</h3>
+                            <p>{$instance['review_description']}</p>
+                            <span class='author-name'>{$instance['review_author']}</span>
                         </li>
             
                         <li class='col-md-6'>
-                            <div class='reviewWrapper'>
-                                <h3>{$instance['another_review_text']}</h3>
-                                <p>{$instance['another_review_description']}</p>
-                                <span class='author-name'>{$instance['another_review_author']}</span>
-                            </div>
+                            <h3>{$instance['another_review_text']}</h3>
+                            <p>{$instance['another_review_description']}</p>
+                            <span class='author-name'>{$instance['another_review_author']}</span>
                         </li>
             
                     </ul>
