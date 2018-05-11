@@ -65,7 +65,7 @@ class NeedHelp_Widget extends \WP_Widget {
 
         $triggerChatClass = '';
 
-        if($instance['icon'] == 'chat') {
+        if($instance['icon'] == 'comment') {
             $triggerChatClass = 'triggerChat';
         }
 
