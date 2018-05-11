@@ -63,10 +63,16 @@ class NeedHelp_Widget extends \WP_Widget {
             $clickWrapperEndHtml = '</div>';
         }
 
+        $triggerChatClass = '';
+
+        if($instance['icon'] == 'chat') {
+            $triggerChatClass = 'triggerChat';
+        }
+
         echo '<div class="col-md-4 friendly-widget">
                 '.$clickWrapperStartHtml.'
                 <div class="iconWrapper"><i class="needHelp-icons '.$instance['icon'].'"></i></div>
-                <div class="details triggerChat">
+                <div class="details '.$triggerChatClass.'">
                     <p class="title toggle_chat">'.$instance['title'].'</p>
                     <p class="desc">'.$instance['content'].'</p>
                 </div>
