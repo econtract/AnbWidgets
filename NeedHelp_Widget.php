@@ -50,8 +50,8 @@ class NeedHelp_Widget extends \WP_Widget {
 			//echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
 		}
 
-		$clickWrapperStartHtml = '';
-		$clickWrapperEndHtml = '';
+		$clickWrapperStartHtml = '<div class="helpBox">';
+		$clickWrapperEndHtml = '</div>';
 
 		if($instance['icon'] == 'mail') {
 		    $clickWrapperStartHtml = '<div class="helpBox" data-toggle="modal" data-target="#MailUs">';
@@ -65,14 +65,12 @@ class NeedHelp_Widget extends \WP_Widget {
 
         echo '<div class="col-md-4 friendly-widget">
                 '.$clickWrapperStartHtml.'
-                <div class="helpBox">
                 <div class="iconWrapper"><i class="needHelp-icons '.$instance['icon'].'"></i></div>
                 <div class="details triggerChat">
-                <p class="title toggle_chat">'.$instance['title'].'</p>
-                <p class="desc">'.$instance['content'].'</p>
+                    <p class="title toggle_chat">'.$instance['title'].'</p>
+                    <p class="desc">'.$instance['content'].'</p>
                 </div>
-                </div>
-                '.$clickWrapperStartHtml.'
+                '.$clickWrapperEndHtml.'
               </div>';
 
 		echo $args['after_widget'];
