@@ -31,7 +31,7 @@ class HomePageCustomerReviews_Widget extends \WP_Widget {
 		echo $args['before_widget'];
 
         echo "<div class='row'>
-                <div class='col-md-4'>
+                <div class='col-sm-5 col-md-4 '>
                     <div class='headingPanel'>
                         <div class='iconWrapper'>
                             <i class='fa fa-thumbs-o-up fa-5x'></i>
@@ -41,16 +41,15 @@ class HomePageCustomerReviews_Widget extends \WP_Widget {
                     </div>
                 </div>
             
-                <div class='col-md-7 col-md-offset-1'>
-                    <ul class='row reviews-content'>
-            
-                        <li class='col-md-6'>
+                <div class='col-sm-7 col-md-7 col-md-offset-1'>
+                    <ul class='reviews-content review-slider owl-theme owl-carousel'>
+                        <li class=''>
                             <h3>{$instance['review_text']}</h3>
                             <p>{$instance['review_description']}</p>
                             <span class='author-name'>{$instance['review_author']}</span>
                         </li>
             
-                        <li class='col-md-6'>
+                        <li class=''>
                             <h3>{$instance['another_review_text']}</h3>
                             <p>{$instance['another_review_description']}</p>
                             <span class='author-name'>{$instance['another_review_author']}</span>
