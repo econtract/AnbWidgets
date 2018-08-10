@@ -69,7 +69,7 @@ class NeedHelp_Widget extends \WP_Widget {
             $triggerChatClass = 'triggerChat';
         }
 
-        echo '<div class="col-md-4 friendly-widget">
+        echo '<div class="col-xs-12 col-sm-6 col-md-4 friendly-widget">
                 '.$clickWrapperStartHtml.'
                 <div class="iconWrapper"><i class="needHelp-icons '.$instance['icon'].'"></i></div>
                 <div class="details '.$triggerChatClass.'">
