@@ -44,12 +44,14 @@ class LandingPageWhyChooseAanbieders_Widget extends \WP_Widget {
 	public function widget( $args, $instance ) {
 		echo $args['before_widget'];
 
-		echo "<div class='col-md-3'>
+		echo "<div class='col-xs-12 col-sm-6 col-md-3 telecom-widget'>
 					<div class='iconWrapper'>
 						<img src='".esc_url($instance['image_uri'])."' alt='{$instance['title']}' />
 					</div>
+					<div class='whyaainbieder-content'>
 					<h4>{$instance['title']}</h4>
 					<p>{$instance['description']}</p>
+					</div>
 			</div>";
 
 		echo $args['after_widget'];

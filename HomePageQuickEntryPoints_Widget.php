@@ -44,7 +44,7 @@ class HomePageQuickEntryPoints_Widget extends \WP_Widget {
 	public function widget( $args, $instance ) {
 		echo $args['before_widget'];
 
-		echo "<div class='col-md-4'>
+		echo "<div class='col-xs-12 col-sm-4 col-md-4'>
 				<div class='entryPoint'>
 					<div class='iconWrapper'>
 						<img src='".esc_url($instance['image_uri'])."' alt='".pll__($instance['title'])."' />
