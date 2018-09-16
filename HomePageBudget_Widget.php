@@ -42,7 +42,7 @@ class HomePageBudget_Widget extends \WP_Widget {
 
                            <div class='col-md-6'>
                                <div class='yearly-saving-content'>
-                                   <h1>{$instance['text_right']}</h1>
+                                   <h3>{$instance['text_right']}</h3>
                                    <p>{$instance['description']}</p>
                                    <a href='{$instance['btn_link']}' class='btn btn-outline all-caps'>{$instance['btn_text']}</a>
                                </div>
