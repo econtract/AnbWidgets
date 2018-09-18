@@ -77,8 +77,17 @@ class NeedHelp_Widget extends \WP_Widget {
 		}*/
 
 		if($instance['icon'] == 'whatsapp') {
-			$clickWrapperStartHtml .= '<a href="https://web.whatsapp.com/send?phone='.pll__('Whatsapp number').'">';
-			$clickWrapperEndHtml = '</a>' . $clickWrapperEndHtml;
+			$android = stripos($_SERVER['HTTP_USER_AGENT'], "android");
+			$iphone = stripos($_SERVER['HTTP_USER_AGENT'], "iphone");
+			$ipad = stripos($_SERVER['HTTP_USER_AGENT'], "ipad");
+
+			if($android !== false || $ipad !== false || $iphone !== false) {
+				$clickWrapperStartHtml .= '<a href="https://api.whatsapp.com/send?phone='.pll__('Whatsapp number').'">';
+				$clickWrapperEndHtml = '</a>' . $clickWrapperEndHtml;
+            } else {
+				$clickWrapperStartHtml .= '<a href="https://web.whatsapp.com/send?phone='.pll__('Whatsapp number').'">';
+				$clickWrapperEndHtml = '</a>' . $clickWrapperEndHtml;
+            }
 		}
 
 		$titleHtml = '<p class="title toggle_chat">'.$instance['title'].'</p>';
