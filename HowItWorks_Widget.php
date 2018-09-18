@@ -56,7 +56,7 @@ class HowItWorks_Widget extends \WP_Widget {
                 <img src='".esc_url($instance['image_uri'])."' alt='{$instance['title']}' />
                 </div>
                 <div class='how-it-content'>
-                <h3>{$instance['title']}</h3>
+                <h4>{$instance['title']}</h4>
                 <p>{$instance['description']}</p>
                 <a href='".esc_url($instance['video_link'])."' title='{$instance['video_label']}' class='all-caps'>{$instance['video_label']}</a>
                 </div>
