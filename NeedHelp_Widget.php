@@ -53,6 +53,9 @@ class NeedHelp_Widget extends \WP_Widget {
 		$clickWrapperStartHtml = '<div class="helpBox">';
 		$clickWrapperEndHtml = '</div>';
 
+		$clickWrapperStartHtml = '<div class="helpBox">';
+		$clickWrapperEndHtml = '</div>';
+
 		if($instance['icon'] == 'mail') {
 		    $clickWrapperStartHtml = '<div class="helpBox" data-toggle="modal" data-target="#MailUs">';
 			$clickWrapperEndHtml = '</div>';
@@ -62,6 +65,27 @@ class NeedHelp_Widget extends \WP_Widget {
             $clickWrapperStartHtml = '<div class="helpBox" data-toggle="modal" data-target="#CallBack">';
             $clickWrapperEndHtml = '</div>';
         }
+
+		if($instance['icon'] == 'facebook') {
+			$clickWrapperStartHtml .= '<a href="'.pll__('Facebook page link').'">';
+			$clickWrapperEndHtml = '</a>' . $clickWrapperEndHtml;
+		}
+
+		/*if($instance['icon'] == 'mail') {
+			$clickWrapperStartHtml = '<a href="'.pll__('Mail us email').'">';
+			$clickWrapperEndHtml = '</a>';
+		}*/
+
+		if($instance['icon'] == 'whatsapp') {
+			$clickWrapperStartHtml .= '<a href="https://web.whatsapp.com/send?phone='.pll__('Whatsapp number').'">';
+			$clickWrapperEndHtml = '</a>' . $clickWrapperEndHtml;
+		}
+
+		$titleHtml = '<p class="title toggle_chat">'.$instance['title'].'</p>';
+
+		if($instance['icon'] == 'phone') {
+			$titleHtml = '<p class="title toggle_chat tel"><a href="tel:'.$instance['title'].'">'.$instance['title'].'</a></p>';
+		}
 
         $triggerChatClass = '';
 
@@ -73,7 +97,7 @@ class NeedHelp_Widget extends \WP_Widget {
                 '.$clickWrapperStartHtml.'
                 <div class="iconWrapper"><i class="needHelp-icons '.$instance['icon'].'"></i></div>
                 <div class="details '.$triggerChatClass.'">
-                    <p class="title toggle_chat">'.$instance['title'].'</p>
+                    '.$titleHtml.'
                     <p class="desc">'.$instance['content'].'</p>
                 </div>
                 '.$clickWrapperEndHtml.'
