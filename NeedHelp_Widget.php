@@ -91,7 +91,7 @@ class NeedHelp_Widget extends \WP_Widget {
 		$titleHtml = '<p class="title toggle_chat">'.$instance['title'].'</p>';
 
 		if($instance['icon'] == 'phone') {
-			$clickWrapperStartHtml = '<div class="helpBox">';
+			$clickWrapperStartHtml = '<div class="helpBox tel">';
 
 			$titleHtml = '<p class="title toggle_chat">'.$instance['title'].'</p>';
 
