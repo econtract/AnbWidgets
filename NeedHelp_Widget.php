@@ -53,9 +53,6 @@ class NeedHelp_Widget extends \WP_Widget {
 		$clickWrapperStartHtml = '<div class="helpBox">';
 		$clickWrapperEndHtml = '</div>';
 
-		$clickWrapperStartHtml = '<div class="helpBox">';
-		$clickWrapperEndHtml = '</div>';
-
 		if($instance['icon'] == 'mail') {
 		    $clickWrapperStartHtml = '<div class="helpBox" data-toggle="modal" data-target="#MailUs">';
 			$clickWrapperEndHtml = '</div>';
@@ -67,7 +64,7 @@ class NeedHelp_Widget extends \WP_Widget {
         }
 
 		if($instance['icon'] == 'facebook') {
-			$clickWrapperStartHtml .= '<a href="'.pll__('Facebook page link').'">';
+			$clickWrapperStartHtml .= '<a target="_blank" href="'.pll__('Facebook page link').'">';
 			$clickWrapperEndHtml = '</a>' . $clickWrapperEndHtml;
 		}
 
@@ -76,16 +73,17 @@ class NeedHelp_Widget extends \WP_Widget {
 			$clickWrapperEndHtml = '</a>';
 		}*/
 
+		$android = stripos($_SERVER['HTTP_USER_AGENT'], "android");
+		$iphone = stripos($_SERVER['HTTP_USER_AGENT'], "iphone");
+		$ipad = stripos($_SERVER['HTTP_USER_AGENT'], "ipad");
+
 		if($instance['icon'] == 'whatsapp') {
-			$android = stripos($_SERVER['HTTP_USER_AGENT'], "android");
-			$iphone = stripos($_SERVER['HTTP_USER_AGENT'], "iphone");
-			$ipad = stripos($_SERVER['HTTP_USER_AGENT'], "ipad");
+
+			$clickWrapperStartHtml .= '<a target="_blank" href="https://web.whatsapp.com/send?phone='.pll__('Whatsapp number').'">';
+			$clickWrapperEndHtml = '</a>' . $clickWrapperEndHtml;
 
 			if($android !== false || $ipad !== false || $iphone !== false) {
 				$clickWrapperStartHtml .= '<a href="https://api.whatsapp.com/send?phone='.pll__('Whatsapp number').'">';
-				$clickWrapperEndHtml = '</a>' . $clickWrapperEndHtml;
-            } else {
-				$clickWrapperStartHtml .= '<a href="https://web.whatsapp.com/send?phone='.pll__('Whatsapp number').'">';
 				$clickWrapperEndHtml = '</a>' . $clickWrapperEndHtml;
             }
 		}
@@ -93,7 +91,13 @@ class NeedHelp_Widget extends \WP_Widget {
 		$titleHtml = '<p class="title toggle_chat">'.$instance['title'].'</p>';
 
 		if($instance['icon'] == 'phone') {
-			$titleHtml = '<p class="title toggle_chat tel"><a href="tel:'.$instance['title'].'">'.$instance['title'].'</a></p>';
+			$clickWrapperStartHtml = '<div class="helpBox">';
+
+			$titleHtml = '<p class="title toggle_chat">'.$instance['title'].'</p>';
+
+			if($android !== false || $ipad !== false || $iphone !== false) {
+				$titleHtml = '<p class="title toggle_chat"><a href="tel:'.$instance['title'].'">'.$instance['title'].'</a></p>';
+			}
 		}
 
         $triggerChatClass = '';
