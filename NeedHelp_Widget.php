@@ -63,6 +63,43 @@ class NeedHelp_Widget extends \WP_Widget {
             $clickWrapperEndHtml = '</div>';
         }
 
+		if($instance['icon'] == 'facebook') {
+			$clickWrapperStartHtml .= '<a target="_blank" href="'.pll__('Facebook page link').'">';
+			$clickWrapperEndHtml = '</a>' . $clickWrapperEndHtml;
+		}
+
+		/*if($instance['icon'] == 'mail') {
+			$clickWrapperStartHtml = '<a href="'.pll__('Mail us email').'">';
+			$clickWrapperEndHtml = '</a>';
+		}*/
+
+		$android = stripos($_SERVER['HTTP_USER_AGENT'], "android");
+		$iphone = stripos($_SERVER['HTTP_USER_AGENT'], "iphone");
+		$ipad = stripos($_SERVER['HTTP_USER_AGENT'], "ipad");
+
+		if($instance['icon'] == 'whatsapp') {
+
+			$clickWrapperStartHtml .= '<a target="_blank" href="https://web.whatsapp.com/send?phone='.pll__('Whatsapp number').'">';
+			$clickWrapperEndHtml = '</a>' . $clickWrapperEndHtml;
+
+			if($android !== false || $ipad !== false || $iphone !== false) {
+				$clickWrapperStartHtml .= '<a href="https://api.whatsapp.com/send?phone='.pll__('Whatsapp number').'">';
+				$clickWrapperEndHtml = '</a>' . $clickWrapperEndHtml;
+            }
+		}
+
+		$titleHtml = '<p class="title toggle_chat">'.$instance['title'].'</p>';
+
+		if($instance['icon'] == 'phone') {
+			$clickWrapperStartHtml = '<div class="helpBox tel">';
+
+			$titleHtml = '<p class="title toggle_chat">'.$instance['title'].'</p>';
+
+			if($android !== false || $ipad !== false || $iphone !== false) {
+				$titleHtml = '<p class="title toggle_chat"><a href="tel:'.$instance['title'].'">'.$instance['title'].'</a></p>';
+			}
+		}
+
         $triggerChatClass = '';
 
         if($instance['icon'] == 'comment') {
@@ -73,7 +110,7 @@ class NeedHelp_Widget extends \WP_Widget {
                 '.$clickWrapperStartHtml.'
                 <div class="iconWrapper"><i class="needHelp-icons '.$instance['icon'].'"></i></div>
                 <div class="details '.$triggerChatClass.'">
-                    <p class="title toggle_chat">'.$instance['title'].'</p>
+                    '.$titleHtml.'
                     <p class="desc">'.$instance['content'].'</p>
                 </div>
                 '.$clickWrapperEndHtml.'
