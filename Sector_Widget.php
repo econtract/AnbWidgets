@@ -44,7 +44,9 @@ class Sector_Widget extends \WP_Widget {
                         <span class='bold'>".pll__($instance['badge_cost'])."</span>
                     </div>
                     <div class='icon-wrapper'>
-                        <i class='sprite sprite-".pll__($instance['image'])."'></i>
+                        <svg class='svg-".pll__($instance['image'])."'> 
+                            <use xlink:href='".get_bloginfo('template_url')."/images/svg-sprite.svg#svg-".pll__($instance['image'])."'></use> 
+                        </svg>
                     </div>
                     <h3>".pll__($instance['title'])."</h3>
                     <p>".pll__($instance['description'])."</p>
