@@ -108,7 +108,11 @@ class NeedHelp_Widget extends \WP_Widget {
 
         echo '<div class="col-xs-12 col-sm-6 col-md-4 friendly-widget">
                 '.$clickWrapperStartHtml.'
-                <div class="iconWrapper"><i class="needHelp-icons '.$instance['icon'].'"></i></div>
+                <div class="iconWrapper">
+                    <svg class="svg-'.$instance['icon'].'"> 
+                        <use xlink:href="'.get_bloginfo('template_url').'/images/svg-sprite.svg#svg-'.$instance['icon'].'"></use> 
+                    </svg>        
+                </div>
                 <div class="details '.$triggerChatClass.'">
                     '.$titleHtml.'
                     <p class="desc">'.$instance['content'].'</p>
