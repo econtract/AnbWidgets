@@ -49,7 +49,7 @@ class LandingPageQuickEntryPromotions_Widget extends \WP_Widget {
 					<div class='iconWrapper'>
 						<img src='".esc_url($instance['image_uri'])."' alt='{$instance['title']}' />
 					</div>
-					<h4>{$instance['title']}</h4>
+					<h3>{$instance['title']}</h3>
 					<p>{$instance['description']}</p>
 					 <a href='".esc_url($instance['page_link'])."' title='{$instance['label']}' class='all-caps btn btn-primary'>{$instance['label']}</a>
 				</div>

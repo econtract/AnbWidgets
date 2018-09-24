@@ -49,7 +49,7 @@ class LandingPageWhyChooseAanbieders_Widget extends \WP_Widget {
 						<img src='".esc_url($instance['image_uri'])."' alt='{$instance['title']}' />
 					</div>
 					<div class='whyaainbieder-content'>
-					<h4>{$instance['title']}</h4>
+					<h3>{$instance['title']}</h3>
 					<p>{$instance['description']}</p>
 					</div>
 			</div>";
