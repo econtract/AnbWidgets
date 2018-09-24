@@ -91,13 +91,14 @@ class NeedHelp_Widget extends \WP_Widget {
 		$titleHtml = '<p class="title toggle_chat">'.$instance['title'].'</p>';
 
 		if($instance['icon'] == 'phone') {
-			$clickWrapperStartHtml = '<div class="helpBox tel">';
+			$clickWrapperStartHtml .= '<a href="tel:'.$instance['title'].'">';
+			$clickWrapperEndHtml = '</a>' . $clickWrapperEndHtml;
 
 			$titleHtml = '<p class="title toggle_chat">'.$instance['title'].'</p>';
 
-			if($android !== false || $ipad !== false || $iphone !== false) {
+			/*if($android !== false || $ipad !== false || $iphone !== false) {
 				$titleHtml = '<p class="title toggle_chat"><a href="tel:'.$instance['title'].'">'.$instance['title'].'</a></p>';
-			}
+			}*/
 		}
 
         $triggerChatClass = '';
