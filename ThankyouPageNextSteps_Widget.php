@@ -77,7 +77,7 @@ class ThankyouPageNextSteps_Widget extends \WP_Widget {
                 <option value="check" <?php if("check" == $image){echo "selected";}?>><?php echo esc_html__( 'Tick', 'thankyoupage_nextsteps_widget_domain' )?></option>
                 <option value="comment" <?php if("comment" == $image){echo "selected";}?>><?php echo esc_html__( 'Comment', 'thankyoupage_nextsteps_widget_domain' )?></option>
                 <option value="gears" <?php if("gears" == $image){echo "selected";}?>><?php echo esc_html__( 'Settings', 'thankyoupage_nextsteps_widget_domain' )?></option>
-                <option value="credit-card-alt" <?php if("credit-card-alt" == $image){echo "selected";}?>><?php echo esc_html__( 'Card', 'thankyoupage_nextsteps_widget_domain' )?></option>
+                <option value="credit-card" <?php if("credit-card" == $image){echo "selected";}?>><?php echo esc_html__( 'Card', 'thankyoupage_nextsteps_widget_domain' )?></option>
             </select>
         </p>
         <p>
