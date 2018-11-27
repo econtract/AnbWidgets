@@ -37,7 +37,7 @@ class Sector_Widget extends \WP_Widget {
 		}
 		//echo esc_html__( 'Hello, World!', 'sector_widget_domain' );
 
-		echo "<li class='col-md-3'>
+		echo "<li class='col-sm-6 col-md-3'>
                 <div class='placeholder'>
                     <div class='save-badge'>
                         <span>".pll__($instance['badge_text'])."</span>
