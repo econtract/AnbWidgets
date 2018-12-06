@@ -51,7 +51,7 @@ class OurTeam_Widget extends \WP_Widget {
 		}
 		//echo esc_html__( 'Hello, World!', 'our_team_widget_domain' );
 
-		echo '<li class="">
+		echo '<li class="col-md-4 col-sm-6">
                     <div class="placeholder">
                         <img src="'.esc_url($instance['image_uri']).'" alt="'.$instance['name'].'" />
                         <div class="about-team-member">
