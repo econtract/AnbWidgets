@@ -53,7 +53,7 @@ class OurTeam_Widget extends \WP_Widget {
 
 		echo '<li class="col-md-4 col-sm-6">
                     <div class="placeholder">
-                        <img src="'.esc_url($instance['image_uri']).'" alt="'.$instance['name'].'" />
+                        <div class="member-dp"><img src="'.esc_url($instance['image_uri']).'" alt="'.$instance['name'].'" /></div>
                         <div class="about-team-member">
                             <h4>'.$instance['name'].'</h4>
                             <p>'.$instance['job_title'].'</p>
