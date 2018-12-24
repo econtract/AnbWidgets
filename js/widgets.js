@@ -6,10 +6,12 @@ jQuery(function($){
         tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
         return false;
     });
-    window.send_to_editor = function(html) {
-        imgurl = $('img', html).attr('src');
-        image_field.val(imgurl);
-        tb_remove();
+    if(image_field != null){
+        window.send_to_editor = function(html) {
+            imgurl = $('img', html).attr('src');
+            image_field.val(imgurl);
+            tb_remove();
+        }
     }
 });
 /*** Code for image upload ends ***/

@@ -33,7 +33,7 @@ class HowItWorks_Widget extends \WP_Widget {
 		wp_enqueue_script('media-upload');
 		wp_enqueue_style('thickbox');
 		// moved the js to an external file, you may want to change the path
-		wp_enqueue_script( 'anbWidgets', plugins_url( '/js/widgets.js', __FILE__ ), array( 'jquery' ), '1.0' );
+		wp_enqueue_script( 'anbWidgets', plugins_url( '/js/widgets.js', __FILE__ ), array( 'jquery' ), '1.0.1' );
 	}
 
 	/**
