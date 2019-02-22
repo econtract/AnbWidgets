@@ -22,4 +22,5 @@ add_action( 'widgets_init', function(){
 	register_widget( 'AnbWidgets\OurTeam_Widget' );
 	register_widget( 'AnbWidgets\NeedHelp_Widget' );
 	register_widget( 'AnbWidgets\ThankyouPageNextSteps_Widget' );
+    register_widget( 'AnbWidgets\ThankyouPageNextSteps_Widget_MovingService' );
 });
