@@ -48,7 +48,7 @@ class Sector_Widget extends \WP_Widget {
                             <use xlink:href='".get_bloginfo('template_url')."/images/svg-sprite.svg#svg-".$instance['image']."'></use> 
                         </svg>
                     </div>
-                    <h3>".pll__($instance['title'])."</h3>
+                    <h2>".pll__($instance['title'])."</h2>
                     <p>".pll__($instance['description'])."</p>
                     <a href='".pll__($instance['btn_link'])."' class='btn btn-primary all-caps'>".pll__($instance['btn_label'])."</a>
                 </div>
