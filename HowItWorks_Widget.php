@@ -44,26 +44,30 @@ class HowItWorks_Widget extends \WP_Widget {
 	 * @param array $args     Widget arguments.
 	 * @param array $instance Saved values from database.
 	 */
-	public function widget( $args, $instance ) {
-		echo $args['before_widget'];
-		if ( ! empty( $instance['title'] ) ) {
-			//echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
-		}
-		//echo esc_html__( 'Hello, World!', 'how_it_works_widget_domain' );
+    public function widget( $args, $instance ) {
+        echo $args['before_widget'];
+        if ( ! empty( $instance['title'] ) ) {
+            //echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
+        }
+        //echo esc_html__( 'Hello, World!', 'how_it_works_widget_domain' );
+        $linkHtml = '';
+        if($instance['video_label']) {
+            $linkHtml = "<a href='".esc_url($instance['video_link'])."' title='{$instance['video_label']}' class='all-caps'>{$instance['video_label']}</a>";
+        }
 
-		echo "<li class='col-lg-3 col-sm-6'>
+        echo "<li class='col-lg-3 col-sm-6'>
                 <div class='iconWrapper'>
                 <img src='".esc_url($instance['image_uri'])."' alt='{$instance['title']}' />
                 </div>
                 <div class='how-it-content'>
                 <h4>{$instance['title']}</h4>
                 <p>{$instance['description']}</p>
-                <a href='".esc_url($instance['video_link'])."' title='{$instance['video_label']}' class='all-caps'>{$instance['video_label']}</a>
+                ".$linkHtml."
                 </div>
               </li>";
 
-		echo $args['after_widget'];
-	}
+        echo $args['after_widget'];
+    }
 
 	/**
 	 * Back-end widget form.
@@ -72,13 +76,13 @@ class HowItWorks_Widget extends \WP_Widget {
 	 *
 	 * @param array $instance Previously saved values from database.
 	 */
-	public function form( $instance ) {
-		$image_uri = ! empty( $instance['image_uri'] ) ? $instance['image_uri'] : esc_html__( 'Choose image', 'how_it_works_widget_domain' );
-		$title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'New title', 'how_it_works_widget_domain' );
-		$description = ! empty( $instance['description'] ) ? $instance['description'] : esc_html__( 'New description', 'how_it_works_widget_domain' );
-		$videoLbl = ! empty( $instance['video_label'] ) ? $instance['video_label'] : esc_html__( 'Video Label', 'how_it_works_widget_domain' );
-		$videoLink = ! empty( $instance['video_link'] ) ? $instance['video_link'] : esc_html__( '#', 'how_it_works_widget_domain' );
-		?>
+    public function form( $instance ) {
+        $image_uri = ! empty( $instance['image_uri'] ) ? $instance['image_uri'] : esc_html__( 'Choose image', 'how_it_works_widget_domain' );
+        $title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'New title', 'how_it_works_widget_domain' );
+        $description = ! empty( $instance['description'] ) ? $instance['description'] : esc_html__( 'New description', 'how_it_works_widget_domain' );
+        $videoLbl = $instance['video_label'];
+        $videoLink = $instance['video_link'];
+        ?>
         <p>
             <label for="<?php echo $this->get_field_id('image_uri'); ?>"><?php esc_attr_e( 'Icon Image:', 'how_it_works_widget_domain' ); ?></label>
             <input type="text" class="img widefat" name="<?php echo $this->get_field_name('image_uri'); ?>" id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php echo esc_attr($image_uri); ?>" />
@@ -100,8 +104,8 @@ class HowItWorks_Widget extends \WP_Widget {
             <label for="<?php echo esc_attr( $this->get_field_id( 'video_link' ) ); ?>"><?php esc_attr_e( 'Video Link:', 'how_it_works_widget_domain' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'video_link' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'video_link' ) ); ?>" type="text" value="<?php echo esc_attr( $videoLink ); ?>">
         </p>
-		<?php
-	}
+        <?php
+    }
 
 	/**
 	 * Sanitize widget form values as they are saved.
