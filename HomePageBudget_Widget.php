@@ -36,7 +36,7 @@ class HomePageBudget_Widget extends \WP_Widget {
                                        <img src='".get_template_directory_uri()."/images/common/icons/home-page/line-chart.png' alt=''>
                                    </div>
                                    <h6>{$instance['tagline']}</h6>
-                                   <h1>{$instance['text_left']}</h1>
+                                   <h3>{$instance['text_left']}</h3>
                                </div>
                            </div>
 
