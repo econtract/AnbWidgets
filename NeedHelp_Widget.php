@@ -36,93 +36,70 @@ class NeedHelp_Widget extends \WP_Widget {
 		wp_enqueue_script( 'anbWidgets', plugins_url( '/js/widgets.js', __FILE__ ), array( 'jquery' ), '1.0' );
 	}
 
-	/**
-	 * Front-end display of widget.
-	 *
-	 * @see WP_Widget::widget()
-	 *
-	 * @param array $args     Widget arguments.
-	 * @param array $instance Saved values from database.
-	 */
-	public function widget( $args, $instance ) {
-		echo $args['before_widget'];
-		if ( ! empty( $instance['title'] ) ) {
-			//echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
-		}
+    /**
+     * Front-end display of widget.
+     *
+     * @see WP_Widget::widget()
+     *
+     * @param array $args     Widget arguments.
+     * @param array $instance Saved values from database.
+     */
+    public function widget($args, $instance)
+    {
+        $icon = 'abf abf-' . $instance['icon'];
 
-		$clickWrapperStartHtml = '<div class="helpBox">';
-		$clickWrapperEndHtml = '</div>';
-
-		if($instance['icon'] == 'mail') {
-		    $clickWrapperStartHtml = '<div class="helpBox" data-toggle="modal" data-target="#MailUs">';
-			$clickWrapperEndHtml = '</div>';
+        switch ($instance['icon']) {
+            case 'mail':
+                $args['before_widget'] .= '<a href="javascript:;" data-toggle="modal" data-target="#MailUs">';
+                $args['after_widget']  = '</a>' . $args['after_widget'];
+                break;
+            case 'call_waiting':
+                $args['before_widget'] .= '<a href="javascript:;" data-toggle="modal" data-target="#CallBack">';
+                $args['after_widget']  = '</a>' . $args['after_widget'];
+                $icon                  = 'abf abf-phone-callback';
+                break;
+            case 'facebook':
+                $args['before_widget'] .= '<a target="_blank" href="' . pll__('Facebook page link') . '">';
+                $args['after_widget']  = '</a>' . $args['after_widget'];
+                break;
+            case 'whatsapp':
+                $mobile = false;
+                foreach (['android', 'iphone', 'ipad'] as $os) {
+                    $mobile = $mobile || stripos($_SERVER['HTTP_USER_AGENT'], $os) !== false;
+                }
+                if ($mobile) {
+                    $args['before_widget'] .= '<a target="_blank" href="https://web.whatsapp.com/send?phone=' . pll__('Whatsapp number') . '">';
+                    $args['after_widget']  = '</a>' . $args['after_widget'];
+                } else {
+                    $args['before_widget'] .= '<a href="https://api.whatsapp.com/send?phone=' . pll__('Whatsapp number') . '">';
+                    $args['after_widget']  = '</a>' . $args['after_widget'];
+                }
+                break;
+            case 'phone':
+                $args['before_widget'] .= '<a href="tel:' . $instance['title'] . '">';
+                $args['after_widget']  = '</a>' . $args['after_widget'];
+                $icon                  = 'abf abf-phone-inverse';
+                break;
+            case 'comment':
+                $args['before_widget'] .= '<a href="javascript:;" data-toggle="chat">';
+                $args['after_widget']  = '</a>' . $args['after_widget'];
+                break;
         }
 
-        if($instance['icon'] == 'call_waiting') {
-            $clickWrapperStartHtml = '<div class="helpBox" data-toggle="modal" data-target="#CallBack">';
-            $clickWrapperEndHtml = '</div>';
-        }
+        echo $args['before_widget'];
 
-		if($instance['icon'] == 'facebook') {
-			$clickWrapperStartHtml .= '<a target="_blank" href="'.pll__('Facebook page link').'">';
-			$clickWrapperEndHtml = '</a>' . $clickWrapperEndHtml;
-		}
-
-		/*if($instance['icon'] == 'mail') {
-			$clickWrapperStartHtml = '<a href="'.pll__('Mail us email').'">';
-			$clickWrapperEndHtml = '</a>';
-		}*/
-
-		$android = stripos($_SERVER['HTTP_USER_AGENT'], "android");
-		$iphone = stripos($_SERVER['HTTP_USER_AGENT'], "iphone");
-		$ipad = stripos($_SERVER['HTTP_USER_AGENT'], "ipad");
-
-		if($instance['icon'] == 'whatsapp') {
-
-			$clickWrapperStartHtml .= '<a target="_blank" href="https://web.whatsapp.com/send?phone='.pll__('Whatsapp number').'">';
-			$clickWrapperEndHtml = '</a>' . $clickWrapperEndHtml;
-
-			if($android !== false || $ipad !== false || $iphone !== false) {
-				$clickWrapperStartHtml .= '<a href="https://api.whatsapp.com/send?phone='.pll__('Whatsapp number').'">';
-				$clickWrapperEndHtml = '</a>' . $clickWrapperEndHtml;
-            }
-		}
-
-		$titleHtml = '<p class="title toggle_chat">'.$instance['title'].'</p>';
-
-		if($instance['icon'] == 'phone') {
-			$clickWrapperStartHtml .= '<a href="tel:'.$instance['title'].'">';
-			$clickWrapperEndHtml = '</a>' . $clickWrapperEndHtml;
-
-			$titleHtml = '<p class="title toggle_chat">'.$instance['title'].'</p>';
-
-			/*if($android !== false || $ipad !== false || $iphone !== false) {
-				$titleHtml = '<p class="title toggle_chat"><a href="tel:'.$instance['title'].'">'.$instance['title'].'</a></p>';
-			}*/
-		}
-
-        $triggerChatClass = '';
-
-        if($instance['icon'] == 'comment') {
-            $triggerChatClass = 'triggerChat';
-        }
-
-        echo '<div class="col-xs-12 col-sm-6 col-md-4 friendly-widget">
-                '.$clickWrapperStartHtml.'
-                <div class="iconWrapper">
-                    <svg class="svg-'.$instance['icon'].'"> 
-                        <use xlink:href="'.get_bloginfo('template_url').'/images/svg-sprite.svg#svg-'.$instance['icon'].'"></use> 
-                    </svg>        
+        echo "<div class='info-block'>
+                <div class='icon-container'>
+                    <i class='$icon'></i>
                 </div>
-                <div class="details '.$triggerChatClass.'">
-                    '.$titleHtml.'
-                    <p class="desc">'.$instance['content'].'</p>
+                <div class='content'>
+                    <h5 class='content-title'>{$instance['title']}</h5>
+                    <p>{$instance['content']}</p>
                 </div>
-                '.$clickWrapperEndHtml.'
-              </div>';
+            </div>";
 
-		echo $args['after_widget'];
-	}
+        echo $args['after_widget'];
+    }
 
 	/**
 	 * Back-end widget form.
