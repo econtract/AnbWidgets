@@ -53,7 +53,7 @@ class LandingPageWhyChooseAanbieders_Widget extends \WP_Widget {
                     </div>
                     <div class='col-xs-9 col-sm-12'>
                         <div class='content'>
-                            <h3>{$instance['title']}</h3>
+                            <h3 class='content-title'>{$instance['title']}</h3>
                             <p>{$instance['description']}</p>
                         </div>
 					</div>
