@@ -50,11 +50,11 @@ class NeedHelp_Widget extends \WP_Widget {
 
         switch ($instance['icon']) {
             case 'mail':
-                $args['before_widget'] .= '<a href="javascript:;" data-toggle="modal" data-target="#MailUs">';
+                $args['before_widget'] .= '<a href="' . admin_url('admin-ajax.php') . '?action=sendMailModal" data-open-ajax="#modal-default">';
                 $args['after_widget']  = '</a>' . $args['after_widget'];
                 break;
             case 'call_waiting':
-                $args['before_widget'] .= '<a href="javascript:;" data-toggle="modal" data-target="#CallBack">';
+                $args['before_widget'] .= '<a href="' . admin_url('admin-ajax.php') . '?action=callRequestModal" data-open-ajax="#modal-default">';
                 $args['after_widget']  = '</a>' . $args['after_widget'];
                 $icon                  = 'abf abf-phone-callback';
                 break;
