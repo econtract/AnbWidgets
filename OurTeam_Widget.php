@@ -57,7 +57,7 @@ class OurTeam_Widget extends \WP_Widget {
                         <div class="about-team-member">
                             <h4>'.$instance['name'].'</h4>
                             <p>'.$instance['job_title'].'</p>
-                            <a class="btn btn-outline" title="contact" href="#" data-toggle="modal" data-target="#MailUs">contact '.explode(' ', $instance['name'])[0].'</a>
+                            <a class="btn btn-outline" title="contact" href="' . admin_url('admin-ajax.php') . '?action=sendMailModal" data-open-ajax="#modal-default">contact '.explode(' ', $instance['name'])[0].'</a>
                         </div>
                     </div>
                 </li>';
