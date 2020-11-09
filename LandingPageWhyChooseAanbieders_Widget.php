@@ -47,14 +47,16 @@ class LandingPageWhyChooseAanbieders_Widget extends \WP_Widget {
         echo "<div class='usp-block'>
                 <div class='row compact'>
                     <div class='col-xs-3 col-sm-12'>
-                        <div class='img-container'>
-                            <img src='" . esc_url($instance['image_uri']) . "' alt='{$instance['title']}' />
+                        <div class='usp-block-icon'>
+                            <div class='img-container'>
+                                <img src='" . esc_url($instance['image_uri']) . "' alt='{$instance['title']}' />
+                            </div>
                         </div>
                     </div>
                     <div class='col-xs-9 col-sm-12'>
-                        <div class='content'>
-                            <h3 class='content-title'>{$instance['title']}</h3>
-                            <p>{$instance['description']}</p>
+                        <div class='usp-block-body'>
+                            <h3 class='usp-block-title'>{$instance['title']}</h3>
+                            <p class='usp-block-text'>{$instance['description']}</p>
                         </div>
 					</div>
                 </div>
